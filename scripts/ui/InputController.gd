@@ -15,12 +15,14 @@ func _connect_mobile_buttons() -> void:
 	var controls = null
 	if hud.has_method("get_node_or_null"):
 		controls = hud.get_node_or_null("MobileControls")
+		if not controls:
+			controls = hud.get_node_or_null("Backdrop/MainContainer/Row/MobileControls")
 	if not controls:
 		return
-	controls.get_node("ButtonContainer/AttackButton").pressed.connect(_on_attack_pressed)
-	controls.get_node("ButtonContainer/SpawnAnalystsButton").pressed.connect(_on_spawn_pressed)
-	controls.get_node("ButtonContainer/DeployHeroButton").pressed.connect(_on_deploy_hero_pressed)
-	controls.get_node("ButtonContainer/UpgradeTowerButton").pressed.connect(_on_upgrade_pressed)
+	controls.get_node("ButtonContainer/ButtonsGrid/AttackButton").pressed.connect(_on_attack_pressed)
+	controls.get_node("ButtonContainer/ButtonsGrid/SpawnAnalystsButton").pressed.connect(_on_spawn_pressed)
+	controls.get_node("ButtonContainer/ButtonsGrid/DeployHeroButton").pressed.connect(_on_deploy_hero_pressed)
+	controls.get_node("ButtonContainer/ButtonsGrid/UpgradeTowerButton").pressed.connect(_on_upgrade_pressed)
 	controls.get_node("ButtonContainer/TargetButton").pressed.connect(_on_target_pressed)
 
 func _on_attack_pressed() -> void:

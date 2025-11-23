@@ -1,33 +1,59 @@
 [gd_scene load_steps=1 format=3 uid="uid://mobile-controls"]
 
 [node name="MobileControls" type="Control"]
-layout_mode = 3
-anchors_preset = 5
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -220.0
-offset_right = 0.0
-offset_bottom = 0.0
+layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 200.0
-offset_bottom = 220.0
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_constants/separation = 6
+offset_left = -100.0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 280.0
 
-[node name="AttackButton" type="Button" parent="ButtonContainer"]
+[node name="ButtonsGrid" type="GridContainer" parent="ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="AttackButton" type="Button" parent="ButtonContainer/ButtonsGrid"]
+custom_minimum_size = Vector2(96, 96)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Attack"
+theme_override_font_sizes/font_size = 18
 
-[node name="SpawnAnalystsButton" type="Button" parent="ButtonContainer"]
+[node name="SpawnAnalystsButton" type="Button" parent="ButtonContainer/ButtonsGrid"]
+custom_minimum_size = Vector2(96, 96)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Spawn Analysts"
+theme_override_font_sizes/font_size = 18
 
-[node name="DeployHeroButton" type="Button" parent="ButtonContainer"]
+[node name="DeployHeroButton" type="Button" parent="ButtonContainer/ButtonsGrid"]
+custom_minimum_size = Vector2(96, 96)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Deploy Hero"
+theme_override_font_sizes/font_size = 18
 
-[node name="UpgradeTowerButton" type="Button" parent="ButtonContainer"]
+[node name="UpgradeTowerButton" type="Button" parent="ButtonContainer/ButtonsGrid"]
+custom_minimum_size = Vector2(96, 96)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Upgrade Tower"
+theme_override_font_sizes/font_size = 18
 
 [node name="TargetButton" type="Button" parent="ButtonContainer"]
-text = "Change Target"
+custom_minimum_size = Vector2(220, 64)
+size_flags_horizontal = 3
+text = "Δ Target: -"
+theme_override_font_sizes/font_size = 18

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/ui/HUDController.gd" id=1]
 [ext_resource type="PackedScene" path="res://scenes/ui/MobileControls.tscn" id=2]
 [sub_resource type="StyleBoxFlat" id="1"]
-bg_color = Color(0, 0, 0, 0.6)
+bg_color = Color(0, 0, 0, 0.75)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -13,6 +13,13 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
 
 [node name="HUD" type="Control"]
 script = ExtResource("1")
@@ -24,45 +31,148 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-theme_override_styles/panel = SubResource("1")
-custom_minimum_size = Vector2(320, 160)
 
-[node name="Info" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -140.0
-offset_top = -180.0
-offset_right = 140.0
-offset_bottom = -20.0
-alignment = 1
-theme_override_constants/separation = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 18
-
-[node name="CreditsLabel" type="Label" parent="Info"]
-text = "Credits: 0"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-
-[node name="HeroLabel" type="Label" parent="Info"]
-text = "Hero HP: -"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-
-[node name="HQLabel" type="Label" parent="Info"]
-text = "HQ HP: -"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-
-[node name="MessageLabel" type="Label" parent="Info"]
-text = "Status: Waiting"
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
-
-[node name="MobileControls" parent="." instance=ExtResource("2")]
-anchor_left = 1.0
+[node name="Backdrop" type="PanelContainer" parent="."]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -220.0
-offset_top = -220.0
+offset_left = 12.0
+offset_top = -320.0
+offset_right = -12.0
+offset_bottom = -12.0
 theme_override_styles/panel = SubResource("1")
+
+[node name="MainContainer" type="VBoxContainer" parent="Backdrop"]
+layout_mode = 2
+theme_override_constants/separation = 10
+size_flags_vertical = 3
+
+[node name="Row" type="HBoxContainer" parent="Backdrop/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="StatsContainer" type="HBoxContainer" parent="Backdrop/MainContainer/Row"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_constants/separation = 16
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="KPMGStats" type="PanelContainer" parent="Backdrop/MainContainer/Row/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 1
+theme_override_styles/panel = SubResource("2")
+
+[node name="Content" type="VBoxContainer" parent="Backdrop/MainContainer/Row/StatsContainer/KPMGStats"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="NameLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/KPMGStats/Content"]
+text = "KPMG"
+theme_override_font_sizes/font_size = 26
+
+[node name="CreditsLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/KPMGStats/Content"]
+text = "Credits: 0"
+theme_override_font_sizes/font_size = 26
+
+[node name="HeroLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/KPMGStats/Content"]
+text = "Hero HP: -"
+theme_override_font_sizes/font_size = 26
+
+[node name="HQLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/KPMGStats/Content"]
+text = "HQ HP: -"
+theme_override_font_sizes/font_size = 26
+
+[node name="PWCStats" type="PanelContainer" parent="Backdrop/MainContainer/Row/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 1
+theme_override_styles/panel = SubResource("2")
+
+[node name="Content" type="VBoxContainer" parent="Backdrop/MainContainer/Row/StatsContainer/PWCStats"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="NameLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/PWCStats/Content"]
+text = "PwC"
+theme_override_font_sizes/font_size = 26
+
+[node name="CreditsLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/PWCStats/Content"]
+text = "Credits: 0"
+theme_override_font_sizes/font_size = 26
+
+[node name="HeroLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/PWCStats/Content"]
+text = "Hero HP: -"
+theme_override_font_sizes/font_size = 26
+
+[node name="HQLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/PWCStats/Content"]
+text = "HQ HP: -"
+theme_override_font_sizes/font_size = 26
+
+[node name="EYStats" type="PanelContainer" parent="Backdrop/MainContainer/Row/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 1
+theme_override_styles/panel = SubResource("2")
+
+[node name="Content" type="VBoxContainer" parent="Backdrop/MainContainer/Row/StatsContainer/EYStats"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="NameLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/EYStats/Content"]
+text = "EY"
+theme_override_font_sizes/font_size = 26
+
+[node name="CreditsLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/EYStats/Content"]
+text = "Credits: 0"
+theme_override_font_sizes/font_size = 26
+
+[node name="HeroLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/EYStats/Content"]
+text = "Hero HP: -"
+theme_override_font_sizes/font_size = 26
+
+[node name="HQLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/EYStats/Content"]
+text = "HQ HP: -"
+theme_override_font_sizes/font_size = 26
+
+[node name="DELOITTEStats" type="PanelContainer" parent="Backdrop/MainContainer/Row/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 1
+theme_override_styles/panel = SubResource("2")
+
+[node name="Content" type="VBoxContainer" parent="Backdrop/MainContainer/Row/StatsContainer/DELOITTEStats"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="NameLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/DELOITTEStats/Content"]
+text = "Deloitte"
+theme_override_font_sizes/font_size = 26
+
+[node name="CreditsLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/DELOITTEStats/Content"]
+text = "Credits: 0"
+theme_override_font_sizes/font_size = 26
+
+[node name="HeroLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/DELOITTEStats/Content"]
+text = "Hero HP: -"
+theme_override_font_sizes/font_size = 26
+
+[node name="HQLabel" type="Label" parent="Backdrop/MainContainer/Row/StatsContainer/DELOITTEStats/Content"]
+text = "HQ HP: -"
+theme_override_font_sizes/font_size = 26
+
+[node name="MobileControls" parent="Backdrop/MainContainer/Row" instance=ExtResource("2")]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
+size_flags_horizontal = 0
+size_flags_vertical = 1
+
+[node name="MessageLabel" type="Label" parent="Backdrop/MainContainer"]
+layout_mode = 2
+text = "Status: Waiting"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_font_variation/weight = 800

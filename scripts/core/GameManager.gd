@@ -117,6 +117,8 @@ func _init_systems() -> void:
 
 	if hud and hud.has_method("bind_systems"):
 		hud.bind_systems(self, economy_system)
+		if hud.has_method("update_target_label"):
+			hud.update_target_label(player_target_faction_id)
 	if input_controller and input_controller.has_method("bind"):
 		input_controller.bind(hud, self)
 	if hud and hud.has_method("show_message") and player_target_faction_id != "":
@@ -142,6 +144,8 @@ func cycle_player_target() -> void:
 		next_idx = (next_idx + 1) % FactionsConfig.BIG4_IDS.size()
 		next_id = FactionsConfig.BIG4_IDS[next_idx]
 	player_target_faction_id = next_id
+	if hud and hud.has_method("update_target_label"):
+		hud.update_target_label(next_id)
 	if hud and hud.has_method("show_message"):
 		hud.show_message("Targeting %s" % next_id)
 
@@ -207,7 +211,7 @@ func deploy_hero(faction_id: String) -> void:
 			heroes.erase(faction_id)
 	)
 	if faction_id == player_faction_id:
-		hud.update_hero_hp(hero.hp, hero.max_hp)
+		hud.update_hero_hp(faction_id, hero.hp, hero.max_hp)
 
 func _setup_structures() -> void:
 	hq_by_faction.clear()
@@ -307,9 +311,14 @@ func _check_victory_conditions() -> void:
 func _update_hud_stats() -> void:
 	if not hud:
 		return
-	var player_hq = get_hq_for_faction(player_faction_id)
-	if player_hq:
-		hud.update_hq_hp(player_hq.hp, player_hq.max_hp)
-	var hero: Node = heroes.get(player_faction_id)
-	if hero and is_instance_valid(hero):
-		hud.update_hero_hp(hero.hp, hero.max_hp)
+	for faction_id in FactionsConfig.BIG4_IDS:
+		var faction_hq = get_hq_for_faction(faction_id)
+		if faction_hq:
+			hud.update_hq_hp(faction_id, faction_hq.hp, faction_hq.max_hp)
+		else:
+			hud.update_hq_hp(faction_id, 0.0, 0.0)
+		var hero: Node = heroes.get(faction_id)
+		if hero and is_instance_valid(hero):
+			hud.update_hero_hp(faction_id, hero.hp, hero.max_hp)
+		else:
+			hud.update_hero_hp(faction_id, 0.0, 0.0)
