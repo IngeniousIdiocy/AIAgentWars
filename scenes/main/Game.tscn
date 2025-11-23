@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://game-scene"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/World.tscn" id=1]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id=2]
+[ext_resource type="Script" path="res://scripts/ui/InputController.gd" id=3]
+
+[node name="Game" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1")]
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="HUDLayer" instance=ExtResource("2")]
+
+[node name="InputController" type="Node" parent="."]
+script = ExtResource("3")

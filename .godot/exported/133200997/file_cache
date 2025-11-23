@@ -1,0 +1,13 @@
+res://scenes/main/Game.tscn::366fa1421f94ffadaaa9f48955a77a8f::1763903030::res://.godot/exported/133200997/export-eba6b8e85c2aeaa8252df95cb6d28068-Game.scn
+res://scenes/main/Main.tscn::448168b854de23ad6854a654952bffda::1763857558::res://.godot/exported/133200997/export-68a04552abb3f12a362e1db2098e38c9-Main.scn
+res://scenes/ui/FactionSelect.tscn::dc3a87510e269bdfebdea6e6da0a25bf::1763870997::res://.godot/exported/133200997/export-3f564cb5783243f4df44e1393de65cd4-FactionSelect.scn
+res://scenes/ui/HUD.tscn::d97baff94a055aff7b94014cc2d793f8::1763903259::res://.godot/exported/133200997/export-74b5c9848938f4eb9ebaf6fab3809318-HUD.scn
+res://scenes/ui/MobileControls.tscn::fa239ea29979b4488bc2cbed94492a06::1763857641::res://.godot/exported/133200997/export-4fa672717b85b2db890842a0fba84425-MobileControls.scn
+res://scenes/units/Analyst.tscn::82a0c68c63bca0a130439a22fbdab652::1763903584::res://.godot/exported/133200997/export-dad10fc3eeaaca9dd5c9f592aff53a4c-Analyst.scn
+res://scenes/units/Auditor.tscn::774fba01999f90fc6ff8ef46cc819ff1::1763903593::res://.godot/exported/133200997/export-f75345afd4c4029c187272b805e1264b-Auditor.scn
+res://scenes/units/NeutralMob.tscn::5767d36e7702c4e4a1f8009b9c57f9c1::1763903604::res://.godot/exported/133200997/export-7e9190716c3ba2f29af8bb98f59b51bb-NeutralMob.scn
+res://scenes/units/Projectile.tscn::db5deaba6a579a5c62ab36ca151be217::1763857621::res://.godot/exported/133200997/export-41565b61b4ebc04912fe05e42ab05d10-Projectile.scn
+res://scenes/world/FactionBase.tscn::2d232713c77a3f9e200689786f9eba68::1763874073::res://.godot/exported/133200997/export-df9495bda895c409e9e64c4ab032ca1e-FactionBase.scn
+res://scenes/world/NeutralZone.tscn::b96700adb35912300cf7c2ab3857f3d5::1763903613::res://.godot/exported/133200997/export-b71d67f7c24c6417e3bfff28b8ff3462-NeutralZone.scn
+res://scenes/world/World.tscn::828b69f9e0bfd6ab2132bea834eb68e7::1763873259::res://.godot/exported/133200997/export-c7db8001466bdbc36a923010fa5ea39c-World.scn
+res://tests/TestRunner.tscn::8d5d23715e322aa103a6deb30ee5f9da::1763857852::res://.godot/exported/133200997/export-84bc5271499dfb0da3eadff07573b49e-TestRunner.scn

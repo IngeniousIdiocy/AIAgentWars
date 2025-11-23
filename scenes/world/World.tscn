@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://world-scene"]
+
+[ext_resource type="Script" path="res://scripts/world/WorldController.gd" id=1]
+[ext_resource type="PackedScene" path="res://scenes/world/FactionBase.tscn" id=2]
+[ext_resource type="PackedScene" path="res://scenes/world/NeutralZone.tscn" id=3]
+[ext_resource type="Script" path="res://scripts/world/WorldCamera.gd" id=4]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1")
+base_scene = ExtResource("2")
+neutral_zone_scene = ExtResource("3")
+
+[node name="BaseContainer" type="Node2D" parent="."]
+
+[node name="NeutralContainer" type="Node2D" parent="."]
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4")
+position = Vector2(0, -200)
+zoom = Vector2(0.8, 0.8)

@@ -1,0 +1,33 @@
+[gd_scene load_steps=1 format=3 uid="uid://mobile-controls"]
+
+[node name="MobileControls" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -220.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 200.0
+offset_bottom = 220.0
+theme_override_constants/separation = 6
+
+[node name="AttackButton" type="Button" parent="ButtonContainer"]
+text = "Attack"
+
+[node name="SpawnAnalystsButton" type="Button" parent="ButtonContainer"]
+text = "Spawn Analysts"
+
+[node name="DeployHeroButton" type="Button" parent="ButtonContainer"]
+text = "Deploy Hero"
+
+[node name="UpgradeTowerButton" type="Button" parent="ButtonContainer"]
+text = "Upgrade Tower"
+
+[node name="TargetButton" type="Button" parent="ButtonContainer"]
+text = "Change Target"

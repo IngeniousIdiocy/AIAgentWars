@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://faction-select"]
+
+[ext_resource type="Script" path="res://scripts/ui/FactionSelectController.gd" id=1]
+
+[node name="FactionSelect" type="Control"]
+script = ExtResource("1")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Buttons" type="VBoxContainer" parent="Center"]
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Center/Buttons"]
+text = "Choose Your Faction"
+horizontal_alignment = 1
+
+[node name="KPMGButton" type="Button" parent="Center/Buttons"]
+text = "KPMG"
+
+[node name="PwCButton" type="Button" parent="Center/Buttons"]
+text = "PwC"
+
+[node name="EYButton" type="Button" parent="Center/Buttons"]
+text = "EY"
+
+[node name="DeloitteButton" type="Button" parent="Center/Buttons"]
+text = "Deloitte"
